@@ -50,6 +50,10 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show()
             }
         }
+        register.setOnClickListener {
+            val intent=Intent(this@MainActivity,Registration::class.java)
+            startActivity(intent)
+        }
     }
     fun savelogin(e:String,p:String){
         sharedPreferences.edit().putBoolean("IsloggedIn",true).apply()

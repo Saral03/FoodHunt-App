@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registration"
+    android:background="#FF4500">
+
+    <EditText
+        android:id="@+id/name_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:hint="Enter your name"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_baseline_person_24"
+        android:drawablePadding="5dp">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/email_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_reg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawablePadding="5dp">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/mobile_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email_reg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:hint="Mobile Number"
+        android:inputType="number"
+        android:maxLength="10"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_twotone_phone_iphone_24"
+        android:drawablePadding="5dp">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/delivery_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mobile_reg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:hint="Delivery Address"
+        android:inputType="textPostalAddress"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_baseline_location_on_24"
+        android:drawablePadding="5dp">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/pass_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/delivery_reg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
+        android:hint="Choose a Password"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="5dp">
+
+    </EditText>
+    <EditText
+        android:id="@+id/pass_confirm_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:layout_below="@id/pass_reg"
+        android:textColorHint="#808080"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="15dp"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="5dp">
+
+    </EditText>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/but_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pass_confirm_reg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#F60404"
+        android:padding="16dp"
+        android:text="REGISTER"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold">
+
+    </androidx.appcompat.widget.AppCompatButton>
+</RelativeLayout>
