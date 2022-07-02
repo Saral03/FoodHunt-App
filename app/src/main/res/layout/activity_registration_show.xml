@@ -72,14 +72,13 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:background="@color/white"
+        android:drawableStart="@drawable/ic_baseline_location_on_24"
+        android:drawablePadding="5dp"
         android:hint="Delivery Address"
-        android:inputType="textPostalAddress"
         android:padding="15dp"
         android:textColor="@color/black"
         android:textColorHint="#808080"
-        android:textSize="18sp"
-        android:drawableStart="@drawable/ic_baseline_location_on_24"
-        android:drawablePadding="5dp">
+        android:textSize="18sp">
 
     </TextView>
 
@@ -92,14 +91,13 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:background="@color/white"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="5dp"
         android:hint="Choose a Password"
-        android:inputType="textPassword"
         android:padding="15dp"
         android:textColor="@color/black"
         android:textColorHint="#808080"
-        android:textSize="18sp"
-        android:drawableStart="@drawable/ic_baseline_lock_24"
-        android:drawablePadding="5dp">
+        android:textSize="18sp">
 
     </TextView>
     <TextView
@@ -107,7 +105,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Confirm Password"
-        android:inputType="textPassword"
         android:layout_below="@id/pass_reg_tv"
         android:textColorHint="#808080"
         android:textColor="@color/black"

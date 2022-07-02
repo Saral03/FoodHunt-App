@@ -54,6 +54,10 @@ class MainActivity : AppCompatActivity() {
             val intent=Intent(this@MainActivity,Registration::class.java)
             startActivity(intent)
         }
+        fp.setOnClickListener {
+            val intent=Intent(this@MainActivity,ForgotPassword::class.java)
+            startActivity(intent)
+        }
     }
     fun savelogin(e:String,p:String){
         sharedPreferences.edit().putBoolean("IsloggedIn",true).apply()

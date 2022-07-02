@@ -20,5 +20,11 @@ class Registration_Show : AppCompatActivity() {
         delivery_reg_tv=findViewById(R.id.delivery_reg_tv)
         pass_reg_tv=findViewById(R.id.pass_reg_tv)
         pass_confirm_reg_tv=findViewById(R.id.pass_confirm_reg_tv)
+        name_reg_tv.setText(intent.getStringExtra("Name"))
+        email_reg_tv.setText(intent.getStringExtra("Email_reg"))
+        mobile_reg_tv.setText(intent.getStringExtra("Mobile_reg"))
+        delivery_reg_tv.setText(intent.getStringExtra("delivery_reg"))
+        pass_reg_tv.setText(intent.getStringExtra("pass_reg"))
+        pass_confirm_reg_tv.setText((intent.getStringExtra("pass_confirm_reg")))
     }
 }

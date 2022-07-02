@@ -14,12 +14,15 @@
         android:theme="@style/Theme.FoodHunt"
         tools:targetApi="31">
         <activity
+            android:name=".ForgotPassword"
+            android:exported="false" />
+        <activity
             android:name=".Registration_Show"
             android:exported="false" />
         <activity
             android:name=".Registration"
             android:exported="false"
-            android:parentActivityName=".Login_Show"/>
+            android:parentActivityName=".Login_Show" />
         <activity
             android:name=".Login_Show"
             android:exported="false" />
