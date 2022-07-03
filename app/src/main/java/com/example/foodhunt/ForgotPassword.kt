@@ -19,7 +19,7 @@ class ForgotPassword : AppCompatActivity() {
         email_fp=findViewById(R.id.email_fp)
         but_fp=findViewById(R.id.but_fp)
         but_fp.setOnClickListener {
-            isAllFieldsChecked = CheckAllFields();
+            isAllFieldsChecked = CheckAllFields()
             if (isAllFieldsChecked) {
                 val intent = Intent(this@ForgotPassword, Forgot_show::class.java)
                 intent.putExtra("mobile_fp", mobile_fp.text.toString())

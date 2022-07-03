@@ -27,21 +27,63 @@ class Registration : AppCompatActivity() {
         pass_reg=findViewById(R.id.pass_reg)
         pass_confirm_reg=findViewById(R.id.pass_confirm_reg)
         but_reg=findViewById(R.id.but_reg)
+        var isAllFieldChecked=false
             but_reg.setOnClickListener {
-                if (pass_reg.text.toString() == pass_confirm_reg.text.toString()) {
-                    val intent = Intent(this@Registration, Registration_Show::class.java)
-                    intent.putExtra("Name", name_reg.text.toString())
-                    intent.putExtra("Email_reg", email_reg.text.toString())
-                    intent.putExtra("Mobile_reg", mobile_reg.text.toString())
-                    intent.putExtra("delivery_reg", delivery_reg.text.toString())
-                    intent.putExtra("pass_reg", pass_reg.text.toString())
-                    intent.putExtra("pass_confirm_reg", pass_confirm_reg.text.toString())
-                    startActivity(intent)
-                    Toast.makeText(this, "Registered", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                isAllFieldChecked=CheckAllFields()
+                if (isAllFieldChecked) {
+                    if (pass_reg.text.toString() == pass_confirm_reg.text.toString()) {
+                        val intent = Intent(this@Registration, Registration_Show::class.java)
+                        intent.putExtra("Name", name_reg.text.toString())
+                        intent.putExtra("Email_reg", email_reg.text.toString())
+                        intent.putExtra("Mobile_reg", mobile_reg.text.toString())
+                        intent.putExtra("delivery_reg", delivery_reg.text.toString())
+                        intent.putExtra("pass_reg", pass_reg.text.toString())
+                        intent.putExtra("pass_confirm_reg", pass_confirm_reg.text.toString())
+                        startActivity(intent)
+                        Toast.makeText(this, "Registered", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
 
     }
+    fun CheckAllFields():Boolean{
+        if (name_reg.length()==0){
+            name_reg.setError("this field is required")
+            return false
+        }
+        if (name_reg.length()<=2){
+            name_reg.setError("Name should be greater than 2")
+            return false
+        }
+        if (email_reg.length()==0){
+            email_reg.setError("this field is required")
+            return false
+        }
+        if (mobile_reg.length()==0){
+            mobile_reg.setError("this field is required")
+            return false
+        }
+        if (mobile_reg.length()<10){
+            mobile_reg.setError("Invalid")
+            return false
+        }
+        if (delivery_reg.length()==0){
+            delivery_reg.setError("this field is required")
+            return false
+        }
+        if (pass_reg.length()==0){
+            pass_reg.setError("this field is required")
+            return false
+        }
+        if (pass_confirm_reg.length()==0){
+            pass_confirm_reg.setError("this field is required")
+            return false
+        }
+        if (pass_reg.text.toString()!= pass_confirm_reg.text.toString()){
+            pass_confirm_reg.setError("Password not matched")
+            return false
+        }
+        return true
+    }
+
 }

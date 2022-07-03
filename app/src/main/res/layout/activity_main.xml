@@ -102,13 +102,12 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="30dp"
-        android:paddingLeft="150dp"
+        android:layout_marginBottom="40dp"
+        android:paddingLeft="135dp"
         android:text="@string/register_yourself"
         android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold">
-    </TextView>
+        android:textSize="16dp"
+        android:textStyle="bold"></TextView>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/but"
