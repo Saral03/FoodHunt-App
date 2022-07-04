@@ -1,5 +1,6 @@
 package com.example.foodhunt
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
@@ -26,5 +27,11 @@ class Registration_Show : AppCompatActivity() {
         delivery_reg_tv.setText(intent.getStringExtra("delivery_reg"))
         pass_reg_tv.setText(intent.getStringExtra("pass_reg"))
         pass_confirm_reg_tv.setText((intent.getStringExtra("pass_confirm_reg")))
+    }
+
+    override fun onPause() {
+        super.onPause()
+        val intent= Intent(this@Registration_Show,MainActivity::class.java)
+        startActivity(intent)
     }
 }

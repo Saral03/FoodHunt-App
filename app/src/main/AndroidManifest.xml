@@ -24,8 +24,7 @@
             android:exported="false" />
         <activity
             android:name=".Registration"
-            android:exported="false"
-            android:parentActivityName=".Login_Show" />
+            android:exported="false" />
         <activity
             android:name=".Login_Show"
             android:exported="false" />

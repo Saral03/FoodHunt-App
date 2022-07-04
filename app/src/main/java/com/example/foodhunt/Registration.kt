@@ -85,5 +85,10 @@ class Registration : AppCompatActivity() {
         }
         return true
     }
+    override fun onPause() {
+        super.onPause()
+        val intent= Intent(this@Registration,MainActivity::class.java)
+        startActivity(intent)
+    }
 
 }
