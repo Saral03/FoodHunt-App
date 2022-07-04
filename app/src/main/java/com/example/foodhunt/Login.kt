@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         if (IsloggedIn){
             val intent=Intent(this@MainActivity,Login_Show::class.java)
             startActivity(intent)
+            finish()
         }
         email=findViewById(R.id.email)
         pass=findViewById(R.id.pass)
@@ -66,5 +67,9 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences.edit().putString("Password",p).apply()
     }
 
+    override fun onPause() {
+        super.onPause()
+        finish()
+    }
 
 }
