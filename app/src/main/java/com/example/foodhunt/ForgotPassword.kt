@@ -18,6 +18,7 @@ class ForgotPassword : AppCompatActivity() {
         mobile_fp=findViewById(R.id.mobile_fp)
         email_fp=findViewById(R.id.email_fp)
         but_fp=findViewById(R.id.but_fp)
+        title="Forgot Password"
         but_fp.setOnClickListener {
             isAllFieldsChecked = CheckAllFields()
             if (isAllFieldsChecked) {

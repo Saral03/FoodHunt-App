@@ -16,8 +16,6 @@ class Login_Show : AppCompatActivity() {
         setContentView(R.layout.activity_login_show)
         email_tv=findViewById(R.id.email_tv)
         pass_tv=findViewById(R.id.pass_tv)
-//        email_tv.setText(intent.getStringExtra("email"))
-//        pass_tv.setText(intent.getStringExtra("password"))
         email_tv.setText((sp.getString("Email","HI")))
         pass_tv.setText((sp.getString("Password","HI")))
 

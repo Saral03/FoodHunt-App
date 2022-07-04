@@ -15,6 +15,7 @@ lateinit var pass:EditText
 lateinit var fp:TextView
 lateinit var but:Button
 lateinit var register:TextView
+
 lateinit var sharedPreferences: SharedPreferences
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,4 +65,6 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences.edit().putString("Email",e).apply()
         sharedPreferences.edit().putString("Password",p).apply()
     }
+
+
 }
