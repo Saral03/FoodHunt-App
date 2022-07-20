@@ -17,8 +17,15 @@ class Navigation : AppCompatActivity() {
         toolbar=findViewById(R.id.toolbar)
         navigation=findViewById(R.id.navigation)
         drawer_layout=findViewById(R.id.drawer_layout)
+        setmytoolbar()
         val actionBarDrawerToggle=ActionBarDrawerToggle(this@Navigation, drawer_layout,R.string.open, R.string.close)
         drawer_layout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
+    }
+    fun setmytoolbar(){
+        setSupportActionBar(toolbar)
+        supportActionBar?.title="Home"
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }
