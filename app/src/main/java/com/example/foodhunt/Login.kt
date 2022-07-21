@@ -40,17 +40,17 @@ class MainActivity : AppCompatActivity() {
         but.setOnClickListener { 
             val check_email=email.text.toString()
             val check_pass=pass.text.toString()
-            if (check_email==inp_email && check_pass==inp_pass){
+//            if (check_email==inp_email && check_pass==inp_pass){
                 Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
                 val intent=Intent(this@MainActivity,Navigation::class.java)
 //                savelogin(check_email,check_pass)
 //                intent.putExtra("email", check_email)
 //                intent.putExtra("password",check_pass)
                 startActivity(intent)
-            }
-            else{
-                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show()
-            }
+//            }
+//            else{
+//                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show()
+//            }
         }
         register.setOnClickListener {
             val intent=Intent(this@MainActivity,Registration::class.java)
