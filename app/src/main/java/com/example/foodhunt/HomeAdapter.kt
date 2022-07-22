@@ -33,9 +33,9 @@ class HomeAdapter(val context: Context,val item:ArrayList<hotel_info>):RecyclerV
         val hotel_info=item[position]
         holder.hotel_name.text=hotel_info.hotelname
         holder.rating.text=hotel_info.hotelrating
-        holder.hotel_cost.text=hotel_info.hotelcost
+        holder.hotel_cost.text="₹ " + hotel_info.hotelcost + "/person"
        // holder.img_list.setImageResource(hotel_info.image)
-        Picasso.get().load(hotel_info.image).into(holder.img_list)
+        Picasso.get().load(hotel_info.image).error(R.drawable.def_img).into(holder.img_list)
 
     }
 

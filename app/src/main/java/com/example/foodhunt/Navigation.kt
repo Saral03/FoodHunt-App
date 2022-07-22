@@ -20,21 +20,22 @@ class Navigation : AppCompatActivity() {
         navigation=findViewById(R.id.navigation)
         drawer_layout=findViewById(R.id.drawer_layout)
         setmytoolbar()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame,HomePage())
+            .commit()
+        drawer_layout.closeDrawers()
+        supportActionBar?.title="Restaurants"
         val actionBarDrawerToggle=ActionBarDrawerToggle(this@Navigation, drawer_layout,R.string.open, R.string.close)
         drawer_layout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
-        navigation.setNavigationItemSelectedListener {
-        when(it.itemId){
-        R.id.home->{
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.frame,HomePage())
-                .commit()
-            drawer_layout.closeDrawers()
-            supportActionBar?.title="Restaurants"
-        }
-        }
-            return@setNavigationItemSelectedListener true
-        }
+//        navigation.setNavigationItemSelectedListener {
+//        when(it.itemId){
+//        R.id.home->{
+//
+//        }
+//        }
+//            return@setNavigationItemSelectedListener true
+//        }
 
     }
     fun setmytoolbar(){
