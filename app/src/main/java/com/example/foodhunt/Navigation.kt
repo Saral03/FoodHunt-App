@@ -12,6 +12,7 @@ import com.google.android.material.navigation.NavigationView
 lateinit var toolbar:Toolbar
 lateinit var navigation:NavigationView
 lateinit var drawer_layout:DrawerLayout
+var PreviousMenuitem:MenuItem?=null
 class Navigation : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,22 +21,24 @@ class Navigation : AppCompatActivity() {
         navigation=findViewById(R.id.navigation)
         drawer_layout=findViewById(R.id.drawer_layout)
         setmytoolbar()
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.frame,HomePage())
-            .commit()
-        drawer_layout.closeDrawers()
-        supportActionBar?.title="Restaurants"
+        openHomePage()
         val actionBarDrawerToggle=ActionBarDrawerToggle(this@Navigation, drawer_layout,R.string.open, R.string.close)
         drawer_layout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
-//        navigation.setNavigationItemSelectedListener {
-//        when(it.itemId){
-//        R.id.home->{
-//
-//        }
-//        }
-//            return@setNavigationItemSelectedListener true
-//        }
+        navigation.setNavigationItemSelectedListener {
+            if (PreviousMenuitem!=null){
+                PreviousMenuitem?.isChecked=false
+            }
+            it.isCheckable=true
+            it.isChecked=true
+            PreviousMenuitem=it
+        when(it.itemId){
+        R.id.home->{
+            openHomePage()
+        }
+        }
+            return@setNavigationItemSelectedListener true
+        }
 
     }
     fun setmytoolbar(){
@@ -52,5 +55,13 @@ class Navigation : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
 
+    }
+    fun openHomePage(){
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame,HomePage())
+            .commit()
+        drawer_layout.closeDrawers()
+        supportActionBar?.title="Restaurants"
+        navigation.setCheckedItem(R.id.home)
     }
 }
