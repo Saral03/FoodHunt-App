@@ -120,4 +120,5 @@ class HomePage : Fragment() {
                 }
             }
     }
+
 }

@@ -64,10 +64,10 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences.edit().putBoolean("IsloggedIn",true).apply()
     }
 
-//    override fun onPause() {
-//        super.onPause()
-//        finish()
-//    }
+    override fun onPause() {
+        super.onPause()
+        finish()
+    }
 
 
 }

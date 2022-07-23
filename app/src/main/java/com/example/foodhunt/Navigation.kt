@@ -15,74 +15,86 @@ lateinit var toolbar:Toolbar
 lateinit var navigation:NavigationView
 lateinit var drawer_layout:DrawerLayout
 var PreviousMenuitem:MenuItem?=null
-class Navigation : AppCompatActivity(){
+class Navigation : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigation)
-        toolbar=findViewById(R.id.toolbar)
-        navigation=findViewById(R.id.navigation)
-        drawer_layout=findViewById(R.id.drawer_layout)
+        toolbar = findViewById(R.id.toolbar)
+        navigation = findViewById(R.id.navigation)
+        drawer_layout = findViewById(R.id.drawer_layout)
         setmytoolbar()
         openHomePage()
-        val actionBarDrawerToggle=ActionBarDrawerToggle(this@Navigation, drawer_layout,R.string.open, R.string.close)
+        val actionBarDrawerToggle =
+            ActionBarDrawerToggle(this@Navigation, drawer_layout, R.string.open, R.string.close)
         drawer_layout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
         navigation.setNavigationItemSelectedListener {
-            if (PreviousMenuitem!=null){
-                PreviousMenuitem?.isChecked=false
+            if (PreviousMenuitem != null) {
+                PreviousMenuitem?.isChecked = false
             }
-            it.isCheckable=true
-            it.isChecked=true
-            PreviousMenuitem=it
-        when(it.itemId){
-        R.id.home->{
-            openHomePage()
-        }
-         R.id.profile->{
-             supportFragmentManager.beginTransaction()
-                 .replace(R.id.frame,Register_show_fragment())
-                 .commit()
-             drawer_layout.closeDrawers()
-             supportActionBar?.title="Profile"
-         }
-            R.id.faq->{
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.frame,Faq_fragment())
-                    .commit()
-                drawer_layout.closeDrawers()
-                supportActionBar?.title="Frequently Answered Question"
+            it.isCheckable = true
+            it.isChecked = true
+            PreviousMenuitem = it
+            when (it.itemId) {
+                R.id.home -> {
+                    openHomePage()
+                }
+                R.id.profile -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frame, Register_show_fragment())
+                        .commit()
+                    drawer_layout.closeDrawers()
+                    supportActionBar?.title = "Profile"
+                }
+                R.id.faq -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frame, Faq_fragment())
+                        .commit()
+                    drawer_layout.closeDrawers()
+                    supportActionBar?.title = "Frequently Asked Question"
 
+                }
+                R.id.logout -> {
+                    sharedPreferences.edit().clear().apply()
+                    startActivity(Intent(this@Navigation, MainActivity::class.java))
+                }
             }
-            R.id.logout->{
-                sharedPreferences.edit().clear().apply()
-                startActivity(Intent(this@Navigation,MainActivity::class.java))
-            }
-        }
             return@setNavigationItemSelectedListener true
         }
 
     }
-    fun setmytoolbar(){
+
+    fun setmytoolbar() {
         setSupportActionBar(toolbar)
-        supportActionBar?.title="Home"
+        supportActionBar?.title = "Home"
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id=item.itemId
-        if (id==android.R.id.home){
+        val id = item.itemId
+        if (id == android.R.id.home) {
             drawer_layout.openDrawer(GravityCompat.START)
         }
 
         return super.onOptionsItemSelected(item)
 
     }
-    fun openHomePage(){
+
+    fun openHomePage() {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frame,HomePage())
+            .replace(R.id.frame, HomePage())
             .commit()
         drawer_layout.closeDrawers()
-        supportActionBar?.title="Restaurants"
+        supportActionBar?.title = "Restaurants"
         navigation.setCheckedItem(R.id.home)
+    }
+
+    override fun onBackPressed() {
+        val frag = supportFragmentManager.findFragmentById(R.id.frame)
+        when (frag) {
+            !is HomePage -> openHomePage()
+            else -> super.onBackPressed()
+        }
     }
 }
