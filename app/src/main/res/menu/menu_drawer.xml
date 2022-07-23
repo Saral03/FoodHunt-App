@@ -19,6 +19,7 @@
 
     </item>
     <item
+        android:id="@+id/faq"
         android:icon="@drawable/ic_question"
         android:title="FAQs">
 

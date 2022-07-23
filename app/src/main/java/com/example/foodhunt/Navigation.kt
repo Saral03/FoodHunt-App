@@ -44,6 +44,14 @@ class Navigation : AppCompatActivity(){
              drawer_layout.closeDrawers()
              supportActionBar?.title="Profile"
          }
+            R.id.faq->{
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.frame,Faq_fragment())
+                    .commit()
+                drawer_layout.closeDrawers()
+                supportActionBar?.title="Frequently Answered Question"
+
+            }
         }
             return@setNavigationItemSelectedListener true
         }
