@@ -1,5 +1,6 @@
 package com.example.foodhunt
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -51,6 +52,10 @@ class Navigation : AppCompatActivity(){
                 drawer_layout.closeDrawers()
                 supportActionBar?.title="Frequently Answered Question"
 
+            }
+            R.id.logout->{
+                sharedPreferences.edit().clear().apply()
+                startActivity(Intent(this@Navigation,MainActivity::class.java))
             }
         }
             return@setNavigationItemSelectedListener true
