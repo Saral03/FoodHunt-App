@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registration_Show">
+    tools:context=".Register_show_fragment"
+    android:background="@color/white">
+
     <TextView
         android:id="@+id/name_reg_tv"
         android:layout_width="match_parent"
@@ -13,15 +15,15 @@
         android:layout_marginTop="100dp"
         android:layout_marginRight="20dp"
         android:background="@color/white"
+        android:drawableStart="@drawable/ic_baseline_person_24"
+        android:drawablePadding="5dp"
         android:hint="Enter your name"
         android:inputType="textPersonName"
         android:padding="15dp"
         android:textColor="@color/black"
         android:textColorHint="#808080"
-        android:textSize="18sp"
-        android:drawableStart="@drawable/ic_baseline_person_24"
-        android:drawablePadding="5dp">
-    </TextView>
+        android:textSize="18sp"></TextView>
+
     <TextView
         android:id="@+id/email_reg_tv"
         android:layout_width="match_parent"
@@ -31,14 +33,14 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:background="@color/white"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawablePadding="5dp"
         android:hint="Email Address"
         android:inputType="textEmailAddress"
         android:padding="15dp"
         android:textColor="@color/black"
         android:textColorHint="#808080"
-        android:textSize="18sp"
-        android:drawableStart="@drawable/ic_baseline_email_24"
-        android:drawablePadding="5dp">
+        android:textSize="18sp">
 
     </TextView>
 
@@ -51,15 +53,15 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:background="@color/white"
+        android:drawableStart="@drawable/ic_twotone_phone_iphone_24"
+        android:drawablePadding="5dp"
         android:hint="Mobile Number"
         android:inputType="number"
         android:maxLength="10"
         android:padding="15dp"
         android:textColor="@color/black"
         android:textColorHint="#808080"
-        android:textSize="18sp"
-        android:drawableStart="@drawable/ic_twotone_phone_iphone_24"
-        android:drawablePadding="5dp">
+        android:textSize="18sp">
 
     </TextView>
 
@@ -94,27 +96,29 @@
         android:drawableStart="@drawable/ic_baseline_lock_24"
         android:drawablePadding="5dp"
         android:hint="Choose a Password"
+        android:inputType="textPassword|numberPassword"
         android:padding="15dp"
         android:textColor="@color/black"
         android:textColorHint="#808080"
         android:textSize="18sp">
 
     </TextView>
+
     <TextView
         android:id="@+id/pass_confirm_reg_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Confirm Password"
         android:layout_below="@id/pass_reg_tv"
-        android:textColorHint="#808080"
-        android:textColor="@color/black"
-        android:background="@color/white"
-        android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:padding="15dp"
         android:layout_marginTop="10dp"
-        android:textSize="18sp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
         android:drawableStart="@drawable/ic_baseline_lock_24"
-        android:drawablePadding="5dp">
-    </TextView>
+        android:drawablePadding="5dp"
+        android:hint="Confirm Password"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
+        android:inputType="textPassword|numberPassword"
+        android:textSize="18sp"></TextView>
 </RelativeLayout>

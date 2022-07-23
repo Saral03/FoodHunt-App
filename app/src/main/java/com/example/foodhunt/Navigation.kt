@@ -7,13 +7,14 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 
 lateinit var toolbar:Toolbar
 lateinit var navigation:NavigationView
 lateinit var drawer_layout:DrawerLayout
 var PreviousMenuitem:MenuItem?=null
-class Navigation : AppCompatActivity() {
+class Navigation : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigation)
@@ -36,6 +37,13 @@ class Navigation : AppCompatActivity() {
         R.id.home->{
             openHomePage()
         }
+         R.id.profile->{
+             supportFragmentManager.beginTransaction()
+                 .replace(R.id.frame,Register_show_fragment())
+                 .commit()
+             drawer_layout.closeDrawers()
+             supportActionBar?.title="Profile"
+         }
         }
             return@setNavigationItemSelectedListener true
         }

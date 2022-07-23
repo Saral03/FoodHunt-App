@@ -16,20 +16,20 @@ lateinit var fp:TextView
 lateinit var but:Button
 lateinit var register:TextView
 
-//lateinit var sharedPreferences: SharedPreferences
+lateinit var sharedPreferences: SharedPreferences
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val inp_email="saralhanda13@gmail.com"
+        val inp_email="Sa"
         val inp_pass="Spicemi5"
-//        sharedPreferences=getSharedPreferences(getString(R.string.my_preference),Context.MODE_PRIVATE)
-//        val IsloggedIn= sharedPreferences.getBoolean("IsloggedIn",false)
+        sharedPreferences=getSharedPreferences(getString(R.string.my_preference),Context.MODE_PRIVATE)
+        val IsloggedIn= sharedPreferences.getBoolean("IsloggedIn",false)
         setContentView(R.layout.activity_main)
-//        if (IsloggedIn){
-//            val intent=Intent(this@MainActivity,Navigation::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        if (IsloggedIn){
+            val intent=Intent(this@MainActivity,Navigation::class.java)
+            startActivity(intent)
+            finish()
+        }
         email=findViewById(R.id.email)
         pass=findViewById(R.id.pass)
         fp=findViewById(R.id.fp)
@@ -40,32 +40,29 @@ class MainActivity : AppCompatActivity() {
         but.setOnClickListener { 
             val check_email=email.text.toString()
             val check_pass=pass.text.toString()
-//            if (check_email==inp_email && check_pass==inp_pass){
+            if (check_email==inp_email && check_pass==inp_pass){
                 Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
                 val intent=Intent(this@MainActivity,Navigation::class.java)
-//                savelogin(check_email,check_pass)
-//                intent.putExtra("email", check_email)
-//                intent.putExtra("password",check_pass)
+                savelogin()
                 startActivity(intent)
-//            }
-//            else{
-//                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show()
-//            }
+            }
+            else{
+                Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show()
+            }
         }
         register.setOnClickListener {
             val intent=Intent(this@MainActivity,Registration::class.java)
             startActivity(intent)
+
         }
         fp.setOnClickListener {
             val intent=Intent(this@MainActivity,ForgotPassword::class.java)
             startActivity(intent)
         }
     }
-//    fun savelogin(e:String,p:String){
-//        sharedPreferences.edit().putBoolean("IsloggedIn",true).apply()
-//        sharedPreferences.edit().putString("Email",e).apply()
-//        sharedPreferences.edit().putString("Password",p).apply()
-//    }
+    fun savelogin(){
+        sharedPreferences.edit().putBoolean("IsloggedIn",true).apply()
+    }
 
 //    override fun onPause() {
 //        super.onPause()

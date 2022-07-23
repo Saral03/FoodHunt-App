@@ -11,12 +11,15 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:networkSecurityConfig="@xml/network_security"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodHunt"
         tools:targetApi="31">
+        <activity
+            android:name=".Registration"
+            android:exported="false" />
         <activity
             android:name=".Navigation"
             android:exported="false" />
@@ -28,9 +31,6 @@
             android:exported="false" />
         <activity
             android:name=".Registration_Show"
-            android:exported="false" />
-        <activity
-            android:name=".Registration"
             android:exported="false" />
         <activity
             android:name=".Login_Show"
