@@ -55,8 +55,10 @@ class Navigation : AppCompatActivity() {
 
                 }
                 R.id.logout -> {
-                    sharedPreferences.edit().clear().apply()
+                    drawer_layout.closeDrawers()
                     startActivity(Intent(this@Navigation, MainActivity::class.java))
+                    sharedPreferences.edit().clear().apply()
+                    finish()
                 }
             }
             return@setNavigationItemSelectedListener true
