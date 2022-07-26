@@ -86,7 +86,7 @@ class Navigation : AppCompatActivity() {
         mobile_drawer=convertView.findViewById(R.id.mobile_drawer)
         add=this@Navigation.getSharedPreferences("FoodHunt", Context.MODE_PRIVATE)
         username.text= add.getString("Name",null)
-        mobile_drawer.text=add.getString("Mobile_reg",null)
+        mobile_drawer.text="+91-"+add.getString("Mobile_reg",null)
         navigation.addHeaderView(convertView)
 
     }
