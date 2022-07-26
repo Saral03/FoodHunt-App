@@ -1,11 +1,14 @@
 package com.example.foodhunt
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,6 +21,8 @@ lateinit var mobile_reg_tv: TextView
 lateinit var delivery_reg_tv: TextView
 lateinit var pass_reg_tv: TextView
 lateinit var pass_confirm_reg_tv: TextView
+lateinit var preferences: SharedPreferences
+
 class Register_show_fragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -37,6 +42,9 @@ class Register_show_fragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
          val view=inflater.inflate(R.layout.fragment_register_show_fragment, container, false)
+        preferences=(activity as FragmentActivity).getSharedPreferences("FoodHunt",Context.MODE_PRIVATE)
+        val sharedPreferences=requireActivity().getSharedPreferences("FoodHunt",Context.MODE_PRIVATE)
+        val IsSave= sharedPreferences.getBoolean("IsSave",false)
         name_reg_tv=view.findViewById(R.id.name_reg_tv)
         email_reg_tv=view.findViewById(R.id.email_reg_tv)
         mobile_reg_tv=view.findViewById(R.id.mobile_reg_tv)
@@ -44,6 +52,7 @@ class Register_show_fragment : Fragment() {
         pass_reg_tv=view.findViewById(R.id.pass_reg_tv)
         pass_confirm_reg_tv=view.findViewById(R.id.pass_confirm_reg_tv)
         val info=arguments
+
 //        val inputName=info?.getString("Name")
 //        val inputEmail=info?.getString("Email_reg")
 //        val inputMobile=info?.getString("Mobile_reg")
@@ -57,6 +66,7 @@ class Register_show_fragment : Fragment() {
             delivery_reg_tv.text=info.get("delivery_reg").toString()
             pass_reg_tv.text=info.get("pass_reg").toString()
             pass_confirm_reg_tv.text=info.get("pass_confirm_reg").toString()
+            saveRegister()
         }
 
             //        name_reg_tv.setText(intent.getStringExtra("Name"))
@@ -66,6 +76,9 @@ class Register_show_fragment : Fragment() {
 //        pass_reg_tv.setText(intent.getStringExtra("pass_reg"))
 //        pass_confirm_reg_tv.setText((intent.getStringExtra("pass_confirm_reg")))
         return view
+    }
+    fun saveRegister(){
+        sharedPreferences.edit().putBoolean("IsSave",true).apply()
     }
 
     companion object {
@@ -79,8 +92,7 @@ class Register_show_fragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Register_show_fragment().apply {
+        fun newInstance(param1: String, param2: String) =            Register_show_fragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

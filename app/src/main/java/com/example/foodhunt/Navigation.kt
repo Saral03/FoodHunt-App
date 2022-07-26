@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
@@ -59,6 +60,14 @@ class Navigation : AppCompatActivity() {
                     startActivity(Intent(this@Navigation, MainActivity::class.java))
                     sharedPreferences.edit().clear().apply()
                     finish()
+                }
+                R.id.fav ->{
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frame, FavFragment())
+                        .commit()
+                    drawer_layout.closeDrawers()
+                    supportActionBar?.title = "Favorites"
+
                 }
             }
             return@setNavigationItemSelectedListener true

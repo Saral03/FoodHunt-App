@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:layout_margin="4dp"
-    app:cardCornerRadius="4dp"
-    >
-<RelativeLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    app:cardCornerRadius="4dp">
+    <RelativeLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/img_list"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="10dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher_round">
+        <ImageView
+            android:id="@+id/img_list_fav"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round">
 
-    </ImageView>
+        </ImageView>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/img_list">
+            android:layout_toRightOf="@id/img_list_fav">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,7 +33,7 @@
                 android:weightSum="11">
 
                 <TextView
-                    android:id="@+id/hotel_name"
+                    android:id="@+id/hotel_name_fav"
                     android:maxLines="2"
                     android:padding="4dp"
                     android:layout_width="match_parent"
@@ -50,7 +48,7 @@
                 </TextView>
 
                 <TextView
-                    android:id="@+id/hotel_cost"
+                    android:id="@+id/hotel_cost_fav"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -62,20 +60,20 @@
 
                 </TextView>
 
-                <ImageView
-                    android:id="@+id/icon"
+                <TextView
+                    android:id="@+id/icon_fav"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:layout_marginTop="-55dp"
+                    android:layout_marginTop="-50dp"
                     android:layout_weight="2"
                     android:drawablePadding="1dp"
-                    android:src="@drawable/heart">
+                    android:drawableRight="@drawable/ic_favorite">
 
-                </ImageView>
+                </TextView>
 
                 <TextView
-                    android:id="@+id/rating"
+                    android:id="@+id/rating_fav"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"

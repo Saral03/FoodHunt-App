@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                 val intent=Intent(this@MainActivity,Navigation::class.java)
                 savelogin()
                 startActivity(intent)
+                finish()/*1*/
             }
             else{
                 Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show()
@@ -53,11 +54,13 @@ class MainActivity : AppCompatActivity() {
         register.setOnClickListener {
             val intent=Intent(this@MainActivity,Registration::class.java)
             startActivity(intent)
+            finish()/*2*/
 
         }
         fp.setOnClickListener {
             val intent=Intent(this@MainActivity,ForgotPassword::class.java)
             startActivity(intent)
+            finish()/*3*/
         }
     }
     fun savelogin(){
