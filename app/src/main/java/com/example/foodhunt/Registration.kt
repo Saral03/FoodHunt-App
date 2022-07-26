@@ -2,13 +2,12 @@ package com.example.foodhunt
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.widget.ButtonBarLayout
-import androidx.fragment.app.FragmentTransaction
 
 lateinit var name_reg: EditText
 lateinit var email_reg: EditText
@@ -17,6 +16,7 @@ lateinit var delivery_reg: EditText
 lateinit var pass_reg: EditText
 lateinit var pass_confirm_reg: EditText
 lateinit var but_reg:Button
+lateinit var prefs: SharedPreferences
 class Registration : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class Registration : AppCompatActivity() {
         pass_reg=findViewById(R.id.pass_reg)
         pass_confirm_reg=findViewById(R.id.pass_confirm_reg)
         but_reg=findViewById(R.id.but_reg)
-        
+        prefs=this@Registration.getSharedPreferences("FoodHunt", Context.MODE_PRIVATE)
         but_reg.setOnClickListener {
             var isAllFieldChecked=false
             isAllFieldChecked=CheckAllFields()
@@ -39,37 +39,23 @@ class Registration : AppCompatActivity() {
                 Toast.makeText(this, "some problem occured", Toast.LENGTH_SHORT).show()
             }
         }
-//                        val bundle=Bundle()
-//                        bundle.putString("Name",name_reg.text.toString())
-//                        bundle.putString("Email_reg",email_reg.text.toString())
-//                        bundle.putString("Mobile_reg",mobile_reg.text.toString())
-//                        bundle.putString("delivery_reg",delivery_reg.text.toString())
-//                        bundle.putString("pass_reg",pass_reg.text.toString())
-//                        bundle.putString("pass_confirm_reg",pass_confirm_reg.text.toString())
-//                        val fragment=Register_show_fragment()
-//                        fragment.arguments=bundle
-
-//                        fragmentManager?.beginTransaction()?.replace(R.id.frame_reg,fragment)?.commit()
-//                    val intent = Intent(this@Registration,Register_show_fragment::class.java)
-//                    intent.putExtra("Name", name_reg.text.toString())
-//                    intent.putExtra("Email_reg", email_reg.text.toString())
-//                    intent.putExtra("Mobile_reg", mobile_reg.text.toString())
-//                    intent.putExtra("delivery_reg", delivery_reg.text.toString())
-//                    intent.putExtra("pass_reg", pass_reg.text.toString())
-//                    intent.putExtra("pass_confirm_reg", pass_confirm_reg.text.toString())
-//                    startActivity(intent)
         
     }
     fun openFragment(){
-        val fragment  = Register_show_fragment()
-        val bundle=Bundle()
-        bundle.putString("Name",name_reg.text.toString())
-        bundle.putString("Email_reg",email_reg.text.toString())
-        bundle.putString("Mobile_reg",mobile_reg.text.toString())
-        bundle.putString("delivery_reg",delivery_reg.text.toString())
-        bundle.putString("pass_reg",pass_reg.text.toString())
-        bundle.putString("pass_confirm_reg",pass_confirm_reg.text.toString())
-        fragment.arguments=bundle
+//        val fragment  = Register_show_fragment()
+//        val bundle=Bundle()
+        prefs.edit().putString("Name",name_reg.text.toString()).apply()
+        prefs.edit().putString("Email_reg",email_reg.text.toString()).apply()
+        prefs.edit().putString("Mobile_reg",mobile_reg.text.toString()).apply()
+        prefs.edit().putString("delivery_reg",delivery_reg.text.toString()).apply()
+        prefs.edit().putString("pass_reg",pass_reg.text.toString()).apply()
+        prefs.edit().putString("pass_confirm_reg",pass_confirm_reg.text.toString()).apply()
+//        bundle.putString("Email_reg",email_reg.text.toString())
+//        bundle.putString("Mobile_reg",mobile_reg.text.toString())
+//        bundle.putString("delivery_reg",delivery_reg.text.toString())
+//        bundle.putString("pass_reg",pass_reg.text.toString())
+//        bundle.putString("pass_confirm_reg",pass_confirm_reg.text.toString())
+        //fragment.arguments=bundle
         val intent=Intent(this@Registration,Navigation::class.java)
         //supportFragmentManager.beginTransaction().replace(R.id.frame_reg,fragment).commit()
         startActivity(intent)

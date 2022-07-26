@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.foodhunt.R
 
 lateinit var mobile_fp:EditText
 lateinit var email_fp:EditText

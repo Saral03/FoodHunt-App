@@ -18,6 +18,9 @@
         android:theme="@style/Theme.FoodHunt"
         tools:targetApi="31">
         <activity
+            android:name=".DrawerHeader"
+            android:exported="false" />
+        <activity
             android:name=".List_item"
             android:exported="false" />
         <activity

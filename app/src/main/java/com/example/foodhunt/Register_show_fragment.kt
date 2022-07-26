@@ -1,5 +1,6 @@
 package com.example.foodhunt
 
+
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -43,15 +44,13 @@ class Register_show_fragment : Fragment() {
         // Inflate the layout for this fragment
          val view=inflater.inflate(R.layout.fragment_register_show_fragment, container, false)
         preferences=(activity as FragmentActivity).getSharedPreferences("FoodHunt",Context.MODE_PRIVATE)
-        val sharedPreferences=requireActivity().getSharedPreferences("FoodHunt",Context.MODE_PRIVATE)
-        val IsSave= sharedPreferences.getBoolean("IsSave",false)
         name_reg_tv=view.findViewById(R.id.name_reg_tv)
         email_reg_tv=view.findViewById(R.id.email_reg_tv)
         mobile_reg_tv=view.findViewById(R.id.mobile_reg_tv)
         delivery_reg_tv=view.findViewById(R.id.delivery_reg_tv)
         pass_reg_tv=view.findViewById(R.id.pass_reg_tv)
         pass_confirm_reg_tv=view.findViewById(R.id.pass_confirm_reg_tv)
-        val info=arguments
+       // val info=arguments
 
 //        val inputName=info?.getString("Name")
 //        val inputEmail=info?.getString("Email_reg")
@@ -59,15 +58,21 @@ class Register_show_fragment : Fragment() {
 //        val inputAddress=info?.getString("delivery_reg")
 //        val inputPassword=info?.getString("pass_reg")
 //        val inputPassword_confirm=info?.getString("pass_confirm_reg")
-        if (info!=null){
-            name_reg_tv.text=info.get("Name").toString()
-            email_reg_tv.text=info.get("Email_reg").toString()
-            mobile_reg_tv.text=info.get("Mobile_reg").toString()
-            delivery_reg_tv.text=info.get("delivery_reg").toString()
-            pass_reg_tv.text=info.get("pass_reg").toString()
-            pass_confirm_reg_tv.text=info.get("pass_confirm_reg").toString()
-            saveRegister()
-        }
+        //if (info!=null){
+        name_reg_tv.text= preferences.getString("Name",null)
+        email_reg_tv.text= preferences.getString("Email_reg",null)
+        mobile_reg_tv.text= preferences.getString("Mobile_reg",null)
+        delivery_reg_tv.text= preferences.getString("delivery_reg",null)
+        pass_reg_tv.text= preferences.getString("pass_reg",null)
+        pass_confirm_reg_tv.text= preferences.getString("pass_confirm_reg",null)
+//            name_reg_tv.text=info.get("Name").toString()
+//            email_reg_tv.text=info.get("Email_reg").toString()
+//            mobile_reg_tv.text=info.get("Mobile_reg").toString()
+//            delivery_reg_tv.text=info.get("delivery_reg").toString()
+//            pass_reg_tv.text=info.get("pass_reg").toString()
+//            pass_confirm_reg_tv.text=info.get("pass_confirm_reg").toString()
+         //   saveRegister()
+        //}
 
             //        name_reg_tv.setText(intent.getStringExtra("Name"))
 //        email_reg_tv.setText(intent.getStringExtra("Email_reg"))
@@ -77,9 +82,9 @@ class Register_show_fragment : Fragment() {
 //        pass_confirm_reg_tv.setText((intent.getStringExtra("pass_confirm_reg")))
         return view
     }
-    fun saveRegister(){
-        sharedPreferences.edit().putBoolean("IsSave",true).apply()
-    }
+//    fun saveRegister(){
+//        sharedPreferences.edit().putBoolean("IsSave",true).apply()
+//    }
 
     companion object {
         /**

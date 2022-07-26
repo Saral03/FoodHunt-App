@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.foodhunt.R
 
 lateinit var email_tv:TextView
 lateinit var pass_tv:TextView

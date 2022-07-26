@@ -3,6 +3,7 @@ package com.example.foodhunt
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.foodhunt.R
 
 lateinit var mobile_fp_tv:TextView
 lateinit var email_fp_tv:TextView

@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.foodhunt.R
 
 lateinit var email:EditText
 lateinit var pass:EditText
