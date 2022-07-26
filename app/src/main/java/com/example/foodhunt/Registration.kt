@@ -70,9 +70,10 @@ class Registration : AppCompatActivity() {
         bundle.putString("pass_reg",pass_reg.text.toString())
         bundle.putString("pass_confirm_reg",pass_confirm_reg.text.toString())
         fragment.arguments=bundle
-        val intent=Intent(this@Registration,MainActivity::class.java)
+        val intent=Intent(this@Registration,Navigation::class.java)
         //supportFragmentManager.beginTransaction().replace(R.id.frame_reg,fragment).commit()
         startActivity(intent)
+        //finish()
 
 
     }

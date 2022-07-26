@@ -60,17 +60,17 @@
 
                 </TextView>
 
-                <TextView
+                <ImageView
                     android:id="@+id/icon_fav"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end"
                     android:layout_marginTop="-50dp"
                     android:layout_weight="2"
-                    android:drawablePadding="1dp"
-                    android:drawableRight="@drawable/ic_favorite">
+                    android:padding="2dp"
+                    android:src="@drawable/heartred">
 
-                </TextView>
+                </ImageView>
 
                 <TextView
                     android:id="@+id/rating_fav"
@@ -82,7 +82,8 @@
                     android:text="4.1"
                     android:textColor="#F8D717"
                     android:textSize="17sp"
-                    android:textStyle="bold">
+                    android:textStyle="bold"
+                    android:padding="2dp">
 
                 </TextView>
 

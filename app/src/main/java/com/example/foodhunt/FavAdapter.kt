@@ -14,9 +14,10 @@ class FavAdapter(val context: Context, val Hotellist:ArrayList<entity>): Recycle
         class FavViewHolder(view: View): RecyclerView.ViewHolder(view){
             val img_list_fav:ImageView=view.findViewById(R.id.img_list_fav)
             val hotel_name_fav:TextView=view.findViewById(R.id.hotel_name_fav)
-            val hotel_cost_fav:TextView=view.findViewById(R.id.hotel_cost_fav)
-            val icon_fav:TextView=view.findViewById(R.id.icon_fav)
             val rating_fav:TextView=view.findViewById(R.id.rating_fav)
+            val hotel_cost_fav:TextView=view.findViewById(R.id.hotel_cost_fav)
+            val icon_fav:ImageView=view.findViewById(R.id.icon_fav)
+
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavAdapter.FavViewHolder {

@@ -46,8 +46,8 @@ class HomeAdapter(val context: Context,val item:ArrayList<hotel_info>):RecyclerV
         val hotelentity= entity(
             hotel_info.hotelid.toInt(),
             hotel_info.hotelname,
-            hotel_info.hotelcost,
             hotel_info.hotelrating,
+            hotel_info.hotelcost,
             hotel_info.image
         )
         val check_fav= DBAsynctask(context,hotelentity, 1).execute()
