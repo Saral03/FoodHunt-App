@@ -102,4 +102,9 @@ class Registration : AppCompatActivity() {
         }
         return true
     }
+
+    override fun onPause() {
+        super.onPause()
+        finish()
+    }
 }

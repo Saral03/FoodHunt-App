@@ -96,6 +96,10 @@ class HomePage : Fragment() {
                 return headers
             }
 
+            override fun getParams(): MutableMap<String, String>? {
+                return super.getParams()
+            }
+
         }
         queue.add(jsonObjectRequest)
         return view

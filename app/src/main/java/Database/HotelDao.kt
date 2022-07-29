@@ -15,4 +15,5 @@ interface HotelDao {
     fun getallhotels():List<entity>
     @Query("SELECT * FROM hotel_info where hotel_id=:hotelid")
     fun gethotelid(hotelid:String):entity
+
 }
